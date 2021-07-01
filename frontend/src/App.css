@@ -1,0 +1,1447 @@
+body {
+  background-color: rgba(192, 192, 192, 0.1);
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid silver;
+  height: 5rem;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  margin-left: 4rem;
+  list-style: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/******************** Components ********************/
+
+.edit-container {
+  margin: 1rem auto;
+  max-width: 30rem;
+  background-color: white;
+  border: 1px solid silver;
+}
+
+.edit-h1 {
+  text-align: center;
+  border-bottom: 1px solid silver;
+  height: 3.5rem;
+}
+
+.edit-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 1rem;
+}
+
+.edit-profile-pic {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.edit-username {
+  position: relative;
+  top: 0.3rem;
+  left: 2rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.edit-text {
+  position: relative;
+  bottom: 0.5rem;
+  left: 2rem;
+  color: rgb(36, 160, 237);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.edit-form {
+  text-align: center;
+  position: relative;
+  bottom: 1.5rem;
+}
+
+.edit-input-label {
+  display: inline-block;
+  text-align: right;
+  width: 4.5rem;
+  font-size: 1.2rem;
+}
+
+.edit-textarea-label {
+  display: inline-block;
+  text-align: right;
+  width: 4.5rem;
+  font-size: 1.2rem;
+  position: relative;
+  bottom: 2.2rem;
+}
+
+.edit-input {
+  width: 20rem;
+  height: 2rem;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  border: 1px solid silver;
+}
+
+.edit-textarea {
+  width: 20rem;
+  height: 3.5rem;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  border: 1px solid silver;
+}
+
+.edit-button {
+  height: 2rem;
+  margin-top: 1rem;
+  background-color: rgb(36, 160, 237);
+  color: white;
+  font-size: 1.1rem;
+  position: relative;
+  right: 5rem;
+  cursor: pointer;
+}
+
+.edit-errorMsg {
+  font-size: 1.2rem;
+  color: red;
+  margin-top: 1.5rem;
+}
+
+.error-page-text {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.homepage-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 57rem;
+  margin: 2rem auto;
+}
+
+.layout-of-comments-container {
+  display: flex;
+  margin-left: 1rem;
+  margin-top: 1.5rem;
+}
+
+.layout-of-comments-profile-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.layout-of-comments-username {
+  margin-left: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.layout-of-comments-comment {
+  margin-left: 0.4rem;
+}
+
+.layout-of-messages-container {
+  width: 15rem;
+  margin-left: 1rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.layout-of-messages-truthy-div {
+  display: flex;
+  align-items: center;
+}
+
+.layout-of-messages-profile-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.layout-of-messages-truthy-message {
+  margin-left: 1rem;
+  border: 1px solid silver;
+  padding: 1rem 1rem;
+  border-radius: 1.5rem;
+}
+
+.layout-of-messages-falsy-div {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 16.5rem;
+}
+
+.layout-of-messages-falsy-message {
+  margin-left: 1rem;
+  background-color: rgba(192, 192, 192, 0.3);
+  padding: 1rem 1rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(192, 192, 192, 0.3);
+}
+
+.layout-of-post-container {
+  border: 1px solid #c0c0c0;
+  width: 35rem;
+  margin-bottom: 4rem;
+  background-color: white;
+}
+
+.layout-of-post-img-and-p-div {
+  display: flex;
+  margin-left: 1rem;
+  height: 4rem;
+  align-items: center;
+}
+
+.layout-of-post-profile-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.layout-of-post-username {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.layout-of-post-image {
+  width: 100%;
+  height: 26.5rem;
+}
+
+.layout-of-post-video {
+  width: 100%;
+  height: 26.5rem;
+  object-fit: inherit;
+}
+
+.layout-of-post-icons {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  height: 1.2rem;
+}
+
+.layout-of-post-heart-icon-truthy {
+  color: red;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.layout-of-post-heart-icon-falsy {
+  color: black;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.layout-of-post-comment-icon {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.layout-of-post-envelope-icon {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.layout-of-post-likes {
+  margin-left: 1rem;
+  height: 1rem;
+}
+
+.layout-of-post-first-span {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.layout-of-post-second-span {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.layout-of-post-caption-div {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.layout-of-post-caption {
+  margin-left: 0.5rem;
+}
+
+.layout-of-post-comment {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.layout-of-post-form {
+  border-top: 1px solid silver;
+  height: 3rem;
+}
+
+.layout-of-post-input {
+  width: 85%;
+  height: 90%;
+  border: none;
+  outline: none;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
+.layout-of-post-button-truthy {
+  border: none;
+  color: rgba(36, 160, 237, 0.5);
+  background-color: white;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.layout-of-post-button-falsy {
+  border: none;
+  color: rgb(36, 160, 237);
+  background-color: white;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.layout-of-searched-users-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.layout-of-searched-users-profile-pic-and-name {
+  display: flex;
+}
+
+.layout-of-searched-users-profile-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.layout-of-searched-users-username-and-full-name-div {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.layout-of-searched-users-full-name {
+  color: gray;
+}
+
+.layout-of-users-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.layout-of-users-profile-pic-and-name {
+  display: flex;
+}
+
+.layout-of-users-profile-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.layout-of-users-username-and-full-name-div {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.layout-of-users-username {
+  color: silver;
+  cursor: pointer;
+}
+
+.layout-of-users-full-name {
+  color: gray;
+}
+
+.layout-of-users-button {
+  height: 1.9rem;
+  cursor: pointer;
+}
+
+.login-container {
+  margin: 5.5rem auto;
+  width: 23rem;
+}
+
+.login-top-box {
+  border: 1px solid silver;
+  height: 18.5rem;
+  background-color: white;
+}
+
+.login-h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+.login-form {
+  text-align: center;
+}
+
+.login-input {
+  width: 70%;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(192, 192, 192, 0.2);
+  border: 1px solid silver;
+}
+
+.login-button-truthy {
+  display: block;
+  width: 72%;
+  height: 2rem;
+  margin: 0.5rem auto;
+  background-color: rgba(36, 160, 237, 0.5);
+  color: white;
+  border: none;
+}
+
+.login-button-falsy {
+  display: block;
+  width: 72%;
+  height: 2rem;
+  margin: 0.5rem auto;
+  background-color: rgb(36, 160, 237);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login-bottom-box {
+  border: 1px solid silver;
+  margin-top: 1rem;
+  text-align: center;
+  background-color: white;
+}
+
+.login-a-tag {
+  color: rgb(36, 160, 237);
+  text-decoration: none;
+}
+
+.login-error-msg {
+  margin-top: 2rem;
+  text-align: center;
+  color: red;
+}
+
+.messages-container {
+  max-width: 55rem;
+  height: 33rem;
+  margin: 1.4rem auto;
+  border: 1px solid silver;
+  display: flex;
+  background-color: white;
+}
+
+.messages-left-box {
+  min-width: 20rem;
+  border-right: 1px solid silver;
+}
+
+.messages-left-top-box {
+  height: 4rem;
+  border: 1px solid silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.messages-select-user {
+  position: relative;
+  left: 6rem;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.messages-recipients {
+  margin-left: 1rem;
+}
+
+.messages-right-box {
+  width: 35rem;
+}
+
+.messages-right-top-box {
+  height: 4rem;
+  border: 1px solid silver;
+  display: flex;
+  align-items: center;
+}
+
+.messages-recipient-profile-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-left: 2.5rem;
+}
+
+.messages-recipient-username {
+  margin-left: 0.8rem;
+}
+
+.messages-right-bottom-box {
+  height: 28.8rem;
+  position: relative;
+}
+
+.messages-displayed-messages-div {
+  height: 24.8rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.messages-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 30rem;
+  border: 1px solid silver;
+  border-radius: 2rem;
+  margin: 0 auto;
+}
+
+.messages-input {
+  width: 20rem;
+  height: 2.8rem;
+  border: 1px solid silver;
+  border: none;
+  outline: none;
+}
+
+.messages-button-truthy {
+  background-color: white;
+  color: rgba(36, 160, 237, 0.5);
+  border: none;
+  font-size: 1.5rem;
+}
+
+.messages-button-falsy {
+  background-color: white;
+  color: rgb(36, 160, 237);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-instaclone-link {
+  text-decoration: none;
+}
+
+.navbar-instaclone {
+  color: black;
+  margin-left: 45%;
+  font-size: 1.8rem;
+}
+
+.navbar-async-select {
+  width: 15rem;
+  position: relative;
+  left: 4rem;
+}
+
+.navbar-home-icon-link {
+  font-size: 2rem;
+}
+
+.navbar-home-icon {
+  color: black;
+}
+
+.navbar-message-icon {
+  color: black;
+}
+
+.navbar-message-icon-link {
+  font-size: 2rem;
+}
+
+.navbar-profile-pic {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.navbar-load-options-container {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.navbar-load-options-profilePic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.navbar-load-options-username-and-fullName-div {
+  margin-left: 1rem;
+}
+
+.navbar-load-options-username {
+  position: relative;
+  top: 0.4rem;
+}
+
+.navbar-load-options-fullName {
+  position: relative;
+  bottom: 0.4rem;
+}
+
+.profile-page-container {
+  max-width: 55rem;
+  margin: 0 auto;
+}
+
+.profile-page-top {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.profile-page-profile-pic {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  position: relative;
+  top: 1.8rem;
+  left: 4rem;
+  margin-right: 9.5rem;
+}
+
+.profile-page-username-and-button-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: -1.7rem;
+}
+
+.profile-page-username {
+  margin-right: 1.5rem;
+  font-size: 2rem;
+}
+
+.profile-page-edit-button {
+  height: 2rem;
+  border: 1px solid silver;
+  background-color: rgba(192, 192, 192, 0.1);
+  cursor: pointer;
+}
+
+.profile-page-logout-button {
+  height: 2rem;
+  border: 1px solid silver;
+  margin-left: 1rem;
+  background-color: rgba(192, 192, 192, 0.1);
+  cursor: pointer;
+}
+
+.profile-page-posts-followers-and-following-div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  width: 19rem;
+  margin-bottom: -0.5rem;
+}
+
+.profile-page-posts-span {
+  font-weight: bold;
+}
+
+.profile-page-followers {
+  cursor: pointer;
+}
+
+.profile-page-followers-span {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-page-following {
+  cursor: pointer;
+}
+
+.profile-page-following-span {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-page-full-name {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.profile-page-bio {
+  width: 20rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size: 1.3rem;
+}
+
+.profile-page-middle {
+  border-bottom: 1px solid silver;
+  background-color: white;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+
+.profile-page-file-upload-div {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.profile-page-label {
+  cursor: pointer;
+}
+
+.profile-page-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-page-preview-image {
+  width: 6.5rem;
+  height: 6.5rem;
+}
+
+.profile-page-preview-video {
+  width: 6.5rem;
+  height: 6.5rem;
+  object-fit: inherit;
+}
+
+.profile-page-textarea {
+  margin-left: 1rem;
+  width: 18rem;
+  height: 6rem;
+}
+
+.profile-page-share-button {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  background-color: rgba(192, 192, 192, 0);
+  color: rgb(36, 160, 237);
+  border: none;
+  cursor: pointer;
+}
+
+.profile-page-uploading-display {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+.profile-page-posts-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  margin-top: 1rem;
+}
+
+.profile-page-post-image {
+  max-width: 100%;
+  width: 17rem;
+  height: 17rem;
+  cursor: pointer;
+}
+
+.profile-page-post-video {
+  max-width: 100%;
+  width: 17rem;
+  height: 17rem;
+  object-fit: inherit;
+  cursor: pointer;
+}
+
+.sign-up-container {
+  margin: 2.5rem auto;
+  width: 23rem;
+}
+
+.sign-up-top-box {
+  border: 1px solid silver;
+  height: 27rem;
+  background-color: white;
+}
+
+.sign-up-h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: -0.5rem;
+  font-size: 3rem;
+}
+
+.sign-up-friendly-msg {
+  color: gray;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.sign-up-form {
+  text-align: center;
+}
+
+.sign-up-input {
+  width: 70%;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(192, 192, 192, 0.2);
+  border: 1px solid silver;
+}
+
+.sign-up-button-truthy {
+  display: block;
+  width: 72%;
+  height: 2rem;
+  margin: 0.5rem auto;
+  background-color: rgba(36, 160, 237, 0.5);
+  color: white;
+  border: none;
+}
+
+.sign-up-button-falsy {
+  display: block;
+  width: 72%;
+  height: 2rem;
+  margin: 0.5rem auto;
+  background-color: rgb(36, 160, 237);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.sign-up-bottom-box {
+  border: 1px solid silver;
+  margin-top: 1rem;
+  text-align: center;
+  background-color: white;
+}
+
+.sign-up-a-tag {
+  color: rgb(36, 160, 237);
+  text-decoration: none;
+}
+
+.sign-up-error-msg {
+  margin-top: 2rem;
+  text-align: center;
+  color: red;
+}
+
+.suggestions-container {
+  width: 18rem;
+  position: fixed;
+  left: 65%;
+}
+
+.suggestions-top-box {
+  display: flex;
+}
+
+.suggestions-profile-pic {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-top: 0.8rem;
+  cursor: pointer;
+}
+
+.suggestions-logged-in-user-name-div {
+  position: relative;
+  bottom: 0.2rem;
+  left: 1rem;
+}
+
+.suggestions-logged-in-user-username {
+  position: relative;
+  top: 0.7rem;
+  cursor: pointer;
+}
+
+.suggestions-logged-in-user-full-name {
+  color: gray;
+}
+
+.suggestions-for-you {
+  color: gray;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.suggestions-user {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.suggestions-user-profile-pic {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  cursor: pointer;
+}
+
+.suggestions-user-username {
+  cursor: pointer;
+  position: relative;
+  bottom: 0.7rem;
+  left: 0.5rem;
+}
+
+.suggestions-user-full-name {
+  color: gray;
+  position: relative;
+  bottom: 1.5rem;
+  left: 0.5rem;
+}
+
+.suggestions-follow {
+  position: absolute;
+  right: 0;
+  color: rgb(36, 160, 237);
+  cursor: pointer;
+}
+
+.user-profile-page-container {
+  max-width: 55rem;
+  margin: 0 auto;
+}
+
+.user-profile-page-top {
+  display: flex;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid silver;
+  margin-bottom: 1rem;
+}
+
+.user-profile-page-profile-pic {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  position: relative;
+  top: 1.8rem;
+  left: 4rem;
+  margin-right: 9.5rem;
+}
+
+.user-profile-page-username-and-button-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: -1.7rem;
+}
+
+.user-profile-page-username {
+  margin-right: 1.5rem;
+  font-size: 2rem;
+}
+
+.user-profile-page-message-button {
+  height: 2rem;
+  border: 1px solid silver;
+  background-color: rgba(192, 192, 192, 0.1);
+  cursor: pointer;
+}
+
+.user-profile-page-toggle-button {
+  height: 2rem;
+  border: 1px solid silver;
+  margin-left: 1rem;
+  background-color: rgba(192, 192, 192, 0.1);
+  cursor: pointer;
+}
+
+.user-profile-page-posts-followers-and-following-div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  width: 19rem;
+  margin-bottom: -0.5rem;
+}
+
+.user-profile-page-posts-span {
+  font-weight: bold;
+}
+
+.user-profile-page-followers {
+  cursor: pointer;
+}
+
+.user-profile-page-followers-span {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.user-profile-page-following {
+  cursor: pointer;
+}
+
+.user-profile-page-following-span {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.user-profile-page-full-name {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.user-profile-page-bio {
+  width: 20rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size: 1.3rem;
+}
+
+.user-profile-page-posts-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  margin-top: 1rem;
+}
+
+.user-profile-page-post-image {
+  max-width: 100%;
+  width: 17rem;
+  height: 17rem;
+  cursor: pointer;
+}
+
+.user-profile-page-post-video {
+  max-width: 100%;
+  width: 17rem;
+  height: 17rem;
+  object-fit: inherit;
+  cursor: pointer;
+}
+
+/****************************************************/
+
+/********************** Modals **********************/
+
+.edit-modal-change-photo {
+  text-align: center;
+  border-bottom: 1px solid silver;
+  padding: 1rem;
+}
+
+.edit-modal-file-input-div {
+  text-align: center;
+  color: rgb(36, 160, 237);
+  cursor: pointer;
+  border-bottom: 1px solid silver;
+  padding: 1rem;
+}
+
+.edit-modal-file-input {
+  display: none;
+}
+
+.edit-modal-remove-photo {
+  text-align: center;
+  color: red;
+  cursor: pointer;
+  border-bottom: 1px solid silver;
+  padding: 1rem;
+}
+
+.edit-modal-cancel {
+  text-align: center;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.ellipsis-modal-delete-post {
+  text-align: center;
+  color: red;
+  cursor: pointer;
+  border-bottom: 1px solid silver;
+  padding: 1rem;
+}
+
+.ellipsis-modal-cancel {
+  text-align: center;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.ellipsis-modal-navigate {
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 1px solid silver;
+  padding: 1rem;
+}
+
+.ellipsis-modal-text {
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 1px solid silver;
+  padding: 1rem;
+}
+
+.followers-modal-top {
+  text-align: center;
+  font-size: 1.2rem;
+  border-bottom: 1px solid silver;
+  padding-bottom: 0.5rem;
+}
+
+.following-modal-top {
+  text-align: center;
+  font-size: 1.2rem;
+  border-bottom: 1px solid silver;
+  padding-bottom: 0.5rem;
+}
+
+.likes-modal-top {
+  text-align: center;
+  font-size: 1.2rem;
+  border-bottom: 1px solid silver;
+  padding-bottom: 0.5rem;
+}
+
+.messages-modal-top {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.3rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid silver;
+}
+
+.messages-modal-times-icon {
+  cursor: pointer;
+}
+
+.messages-modal-button {
+  border: none;
+  background-color: white;
+  color: rgb(36, 160, 237);
+  cursor: pointer;
+}
+
+.messages-modal-form {
+  border-bottom: 1px solid silver;
+  height: 4rem;
+}
+
+.messages-modal-label {
+  margin-left: 0.6rem;
+  font-weight: bold;
+}
+
+.messages-modal-input {
+  margin-left: 1rem;
+  height: 3.8rem;
+  width: 21.2rem;
+  border: none;
+  outline: none;
+}
+
+.messages-modal-span {
+  background-color: rgba(36, 160, 237, 0.2);
+  color: rgb(36, 160, 237);
+  margin-left: 1rem;
+  padding: 0.7rem 0.7rem;
+}
+
+.messages-modal-falsy-div {
+  display: flex;
+  align-items: center;
+}
+
+.messages-modal-suggested-text {
+  margin-left: 1rem;
+}
+
+.messages-modal-filtered-users {
+  margin-left: 1rem;
+  overflow-y: scroll;
+}
+
+.post-modal-container {
+  display: flex;
+}
+
+.post-modal-left-box {
+  width: 36rem;
+  height: 37rem;
+}
+
+.post-modal-image {
+  width: 36rem;
+  height: 37rem;
+  max-width: 100%;
+  min-width: 20rem;
+}
+
+.post-modal-video {
+  width: 36rem;
+  height: 37rem;
+  object-fit: inherit;
+  max-width: 100%;
+  min-width: 20rem;
+}
+
+.post-modal-right-box {
+  width: 19rem;
+}
+
+.post-modal-top-box-div {
+  display: flex;
+  border-bottom: 1px solid silver;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+}
+
+.post-modal-profile-pic-and-usename-div {
+  display: flex;
+}
+
+.post-modal-profile-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.post-modal-username {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.post-modal-ellipsis-icon {
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+
+.post-modal-comments {
+  border-bottom: 1px solid silver;
+  height: 23rem;
+  overflow-y: scroll;
+}
+
+.post-modal-icon-and-likes-div {
+  height: 5.5rem;
+  position: relative;
+  top: 1rem;
+  left: 0.7rem;
+}
+
+.post-modal-icons {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  height: 1.2rem;
+}
+
+.post-modal-heart-icon-truthy {
+  color: red;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.post-modal-heart-icon-falsy {
+  color: black;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.post-modal-comment-icon {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.post-modal-envelope-icon {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.post-modal-likes {
+  margin-left: 1rem;
+  height: 1rem;
+}
+
+.post-modal-first-span {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-modal-second-span {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-modal-form {
+  border-top: 1px solid silver;
+  display: flex;
+  align-items: center;
+}
+
+.post-modal-input {
+  height: 3.6rem;
+  width: 15rem;
+  border: none;
+}
+
+.post-modal-button {
+  border: none;
+  background-color: white;
+  color: rgb(36, 160, 237);
+  cursor: pointer;
+}
+
+/****************************************************/
+
+/******************* Media Queries ******************/
+
+@media (max-width: 887px) {
+  .homepage-container {
+    justify-content: center;
+  }
+
+  .suggestions-container {
+    display: none;
+  }
+}
+
+@media (max-width: 722px) {
+  .navbar-instaclone {
+    margin-left: 0rem;
+  }
+
+  .navbar-async-select {
+    display: none;
+  }
+
+  .post-modal-container {
+    display: block;
+    margin: 5rem auto;
+    width: 22rem;
+  }
+
+  .post-modal-image {
+    height: 27.5rem;
+    width: 22rem;
+    position: relative;
+    bottom: 0.5rem;
+  }
+
+  .post-modal-video {
+    height: 27.5rem;
+    width: 22rem;
+    position: relative;
+    bottom: 0.5rem;
+  }
+
+  .post-modal-comments {
+    display: none;
+  }
+
+  .post-modal-right-box {
+    position: relative;
+    bottom: 14.5rem;
+  }
+
+  .post-modal-top-box-div {
+    position: relative;
+    bottom: 27.5rem;
+    border-bottom: none;
+    width: 22rem;
+  }
+
+  .post-modal-form {
+    display: none;
+  }
+}
+
+@media (max-width: 631px) {
+  .profile-page-username-and-button-div,
+  .user-profile-page-username-and-button-div {
+    display: block;
+    position: relative;
+    top: 1.5rem;
+    right: 3rem;
+  }
+
+  .profile-page-button-div,
+  .user-profile-page-button-div {
+    position: relative;
+    bottom: 1.5rem;
+  }
+
+  .profile-page-posts-followers-and-following-div,
+  .user-profile-page-posts-followers-and-following-div {
+    position: relative;
+    right: 15rem;
+    top: 2rem;
+    margin-top: 2rem;
+  }
+
+  .profile-page-full-name-div,
+  .user-profile-page-full-name-div {
+    position: relative;
+    top: 1.5rem;
+    right: 15rem;
+  }
+
+  .profile-page-bio,
+  .user-profile-page-bio {
+    position: relative;
+    top: 1rem;
+    right: 15rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .layout-of-post-container {
+    width: 30rem;
+  }
+}
