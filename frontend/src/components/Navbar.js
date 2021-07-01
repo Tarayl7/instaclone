@@ -76,7 +76,7 @@ class Navbar extends React.Component {
       await this.props.getUserId(id);
 
       // Get all the posts
-      await axios.get('http://localhost:4000/posts')
+      await axios.get('posts')
         .then(res => {
           this.setState({
             posts: res.data.reverse()
