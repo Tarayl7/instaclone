@@ -23,15 +23,11 @@ class ProfilePage extends React.Component {
 
     this.state = {
       caption: "",
-      url: "",
-      type: "",
-      publicId: "",
       display: "none",
       imageDisplay: "none",
       videoDisplay: "none",
-      uploadingDisplay: "none",
+      processingDisplay: "none",
       labelTextDisplay: "block",
-      uploadingText: "",
       labelText: "Add image or video",
       posts: [],
       loggedInUserPosts: [],
@@ -284,7 +280,7 @@ class ProfilePage extends React.Component {
     const formData = new FormData();
     formData.append("file", this.state.file);
 
-    // If correct image type, then add image to cloudinary
+    // If correct image type, then post image to cloudinary
     if (
       this.state.file.type === "image/jpeg" ||
       this.state.file.type === "image/png"
@@ -293,10 +289,10 @@ class ProfilePage extends React.Component {
         display: "none",
         imageDisplay: "none",
         labelTextDisplay: "none",
-        uploadingText: "Uploading image...",
-        uploadingDisplay: "block",
+        processingDisplay: "block",
       });
 
+      // Post image to cloudinary
       await axios
         .post("upload/image", formData, {
           headers: {
@@ -304,37 +300,27 @@ class ProfilePage extends React.Component {
           },
         })
         .then((res) => {
-          this.setState({
+          // Submit post
+          axios.post("posts/submit_post", {
+            userId: this.props.loggedInUserId,
+            profilePic: this.props.loggedInUserProfilePic,
+            username: this.props.loggedInUserUsername,
             url: res.data.url,
+            caption: this.state.caption,
             type: res.data.resource_type,
             publicId: res.data.public_id,
           });
         });
-
-      // Post information
-      const post = {
-        userId: this.props.loggedInUserId,
-        profilePic: this.props.loggedInUserProfilePic,
-        username: this.props.loggedInUserUsername,
-        url: this.state.url,
-        caption: this.state.caption,
-        type: this.state.type,
-        publicId: this.state.publicId,
-      };
-
-      // Submit post
-      axios.post("posts/submit_post", post);
-
-      // Else if correct video type, the add video to cloudinary
+      // Else if correct video type, then post video to cloudinary
     } else if (this.state.file.type === "video/mp4") {
       this.setState({
         display: "none",
         videoDisplay: "none",
         labelTextDisplay: "none",
-        uploadingDisplay: "block",
-        uploadingText: "Uploading video...",
+        processingDisplay: "block",
       });
 
+      // Post video to cloudinary
       await axios
         .post("upload/video", formData, {
           headers: {
@@ -342,30 +328,21 @@ class ProfilePage extends React.Component {
           },
         })
         .then((res) => {
-          this.setState({
+          // Submit post
+          axios.post("posts/submit_post", {
+            userId: this.props.loggedInUserId,
+            profilePic: this.props.loggedInUserProfilePic,
+            username: this.props.loggedInUserUsername,
             url: res.data.url,
+            caption: this.state.caption,
             type: res.data.resource_type,
             publicId: res.data.public_id,
           });
         });
-
-      // Post information
-      const post = {
-        userId: this.props.loggedInUserId,
-        profilePic: this.props.loggedInUserProfilePic,
-        username: this.props.loggedInUserUsername,
-        url: this.state.url,
-        caption: this.state.caption,
-        type: this.state.type,
-        publicId: this.state.publicId,
-      };
-
-      // Submit post
-      axios.post("posts/submit_post", post);
     }
 
     this.setState({
-      uploadingDisplay: "none",
+      processingDisplay: "none",
       labelTextDisplay: "block",
       labelText: "Add image or video",
       isUpdated: true,
@@ -522,15 +499,20 @@ class ProfilePage extends React.Component {
               </div>
             </form>
             <div
-              className="profile-page-uploading-display"
-              style={{ display: this.state.uploadingDisplay }}
+              className="profile-page-processing-div"
+              style={{
+                display: this.state.processingDisplay,
+              }}
             >
-              {this.state.uploadingText}
+              <div>
+                <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+              </div>
+              <div className="profile-page-processing">Processing</div>
+              <div className="profile-page-please-wait">Please wait...</div>
             </div>
           </div>
           <div className="profile-page-posts-div">{loggedInUserPosts}</div>
         </div>
-
         <FollowersModal
           followersModalIsOpen={this.state.followersModalIsOpen}
           closeFollowersModal={this.closeFollowersModal}

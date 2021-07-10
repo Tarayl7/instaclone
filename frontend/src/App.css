@@ -413,6 +413,7 @@ input[type="file"] {
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-size: 3rem;
+  font-family: "Lobster Two", cursive;
 }
 
 .login-form {
@@ -577,6 +578,7 @@ input[type="file"] {
   color: black;
   margin-left: 45%;
   font-size: 1.8rem;
+  font-family: "Lobster Two", cursive;
 }
 
 .navbar-async-select {
@@ -772,9 +774,20 @@ input[type="file"] {
   cursor: pointer;
 }
 
-.profile-page-uploading-display {
+.profile-page-processing-div {
   text-align: center;
-  font-size: 2.2rem;
+}
+
+.profile-page-processing {
+  font-size: 1.8rem;
+  margin-top: 0.5rem;
+}
+
+.profile-page-please-wait {
+  font-size: 1.8rem;
+  margin-left: 1.6rem;
+  margin-top: 0.5rem;
+  color: gray;
 }
 
 .profile-page-posts-div {
@@ -815,6 +828,7 @@ input[type="file"] {
   margin-top: 2rem;
   margin-bottom: -0.5rem;
   font-size: 3rem;
+  font-family: "Lobster Two", cursive;
 }
 
 .sign-up-friendly-msg {
